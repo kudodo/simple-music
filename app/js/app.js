@@ -23,10 +23,17 @@ function to100(){
   player.currentTime = player.currentTime + 10;
 }
 
-function changeVolume(){
-  var volumeSlider = document.querySelector("#volume");
-  var player = document.querySelector("audio");
-  player.volume = volumeSlider.value;
+function changeVolume(event){
+  if(event.buttons != 0){
+    var player = document.querySelector("audio");
+    var volumeSlider = document.querySelector("#volume");
+
+    var relativeX = event.clientX / event.target.clientWidth;
+    var volume = Math.min(relativeX, 1.0);
+
+    player.volume = volume;
+    volumeSlider.value = volume;
+  }
 }
 
 function init(){
@@ -40,7 +47,7 @@ function init(){
   to100Button.addEventListener("click", to100);
   
   var volumeSlider = document.querySelector("#volume");
-  volumeSlider.addEventListener("change", changeVolume);
+  volumeSlider.addEventListener("mousemove", changeVolume);
 };
 
 window.addEventListener("load", event =>{
