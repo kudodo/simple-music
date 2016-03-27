@@ -29,6 +29,7 @@ function changeVolume(event){
     var relativeX = event.clientX / event.target.clientWidth;
     var volume = Math.min(relativeX, 1.0);
     player.volume = volume;
+    volumeSlider.value = volume;
   }
 }
 
