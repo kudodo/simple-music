@@ -1,0 +1,21 @@
+.legend{
+  display: flex;
+}
+.legend > span{
+  flex-grow: 1;
+  flex-shrink: 1;
+  text-align: center;
+}
+.legend > span:first-child{
+  text-align: left;
+}
+.legend > span:last-child{
+  text-align: right;
+}
+#volumeControl > input{
+  width: 100%;
+}
+#volumeControl{
+  width: 100px;
+  /*transform: rotate(90deg);*/
+}
